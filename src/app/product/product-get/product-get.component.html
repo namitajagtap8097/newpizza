@@ -1,0 +1,30 @@
+<!-- <p>prod-get works!</p> -->
+<div class="container">
+    <h3><a routerLink="product/allProduct"><p>MENU</p></a></h3>
+    <h3><a routerLink="/product/create">Add New Order</a></h3>
+    <div class="row">
+        <div class="col-md-3">PIZZA-ID</div> 
+         <div class="col-md-3">PIZZA-NAME</div>  
+        <div class="col-md-3">PRICE</div>  
+        <div class="col-md-3" ><a>Add to cart</a></div>  
+    </div>
+    
+    <div class="row" *ngFor="let product of products"  >
+        <div class="col-md-3">{{product.prodId}}</div>
+        <div class="col-md-3">{{product.prodName}}</div>
+        <div class="col-md-3">{{product.price}}</div>
+        <a routerLink="/product/delete/{{product.prodId}}">Delete</a>
+        <div class="col-md-2" (click)="onSelection(product)">Click for Edit</div>
+      
+    </div>
+    <div *ngIf="selectedProd" class="selectedProd">
+        <app-product-update [product]="selectedProd"></app-product-update>
+        
+    </div>
+</div>
+
+
+
+
+
+
